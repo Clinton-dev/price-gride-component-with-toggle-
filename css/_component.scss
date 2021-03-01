@@ -1,3 +1,5 @@
+// Contains plan, plan(1,2,3) 
+
 $colors: (
   primary: hsl(236, 72%, 79%),
   primary-1: hsl(237, 63%, 64%),
@@ -20,18 +22,31 @@ $colors: (
   @media (min-width: 376px) { @content; }
 }
 
+@mixin for-tablet-up{
+  @media (min-width: 900px) { @content }
+}
+
 @mixin for-desktop {
   @media (min-width: 1440px) { @content; }
 }
 
 body {
+  background-color: color(secondary);
   
   @include for-phone() {
     background-position: top -5vh right -50vw;
   }
+
+  @include for-phone-up() {
+    background-position: top -5vh right -50vw;
+  }
+  
+  @include for-tablet-up() {
+    background-image: url(/images/bg-top.svg), url(/images/bg-bottom.svg);
+    background-position: top right, bottom left;
+  }
+
 }
-
-
 
 // toggle btn or slider 
 .switch {
@@ -39,6 +54,13 @@ body {
   display: inline-block;
   width: 3.5em;
   height: 2em;
+}
+
+.priceCard-wrapper {
+
+  @include for-desktop() {
+    margin-top: 3em;
+  }
 }
 
 // hide default checkbox
@@ -82,11 +104,17 @@ input:checked + .slider::before {
       transform: translate(1.7em);
 }
 
+.price-cards {
+
+ @include for-tablet-up() {
+    align-items: center;
+ }
+}
 
 .plan {
   width: 100%;
   color: color(secondary-3);
-  background-color: color(secondary);
+  background-color: white;
   padding-top: 1em;
   padding-bottom: 1em;
   padding-right: 2em;
@@ -95,6 +123,10 @@ input:checked + .slider::before {
   margin-bottom: 2em;
   border: 1px solid color(secondary-1);
   border-radius: 5px;
+
+  @include for-tablet-up() {
+    width:  auto;
+  }
 
   li.price {
     font-size: 3.5rem;
@@ -120,13 +152,38 @@ input:checked + .slider::before {
     padding-bottom: .5em; 
     margin-bottom: 1em;
     border-radius: 5px;
-    
+
+    @include for-desktop() {
+      padding-top: .9em;
+      padding-bottom: .9em;
+    }
+  }
+}
+
+.plan1 { 
+  @include for-tablet-up() {
+    flex: 1;
+    margin-right: -1em; 
+  }
+}
+.plan3 {
+
+  @include for-tablet-up() {
+    flex: 1;
+    margin-left: -1em;
   }
 }
 
 .plan2 {
+  z-index: 2;
   color: color(secondary);
   background-color: color(primary-1);
+
+  @include for-tablet-up() {
+    flex: 1;
+    padding-bottom: 2em;
+    padding-top: 2em;
+  }
 
   .cta {
     background-color: color(secondary);
