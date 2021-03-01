@@ -1,0 +1,22 @@
+h1 {
+  margin-bottom: 1em;
+  color: hsl(232, 13%, 33%);
+}
+
+// annuall or monthly
+p.choice {
+  color: hsl(233, 13%, 49%);
+}
+
+.priceCard-wrapper {
+  // display: none;
+  text-align: center;
+  margin-top: 5em;
+}
+
+.price-cards {
+  width: 90%;
+  margin: 2em auto;
+  display: flex;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,136 @@
+$colors: (
+  primary: hsl(236, 72%, 79%),
+  primary-1: hsl(237, 63%, 64%),
+  secondary: hsl(240, 78%, 98%),
+  secondary-1: hsl(234, 14%, 74%),
+  secondary-2: hsl(233, 13%, 49%),
+  secondary-3: hsl(232, 13%, 33%)
+);
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+// MEDIA QUERIES
+@mixin for-phone {
+  @media (max-width: 375px) { @content; }
+}
+
+@mixin for-phone-up {
+  @media (min-width: 376px) { @content; }
+}
+
+@mixin for-desktop {
+  @media (min-width: 1440px) { @content; }
+}
+
+body {
+  
+  @include for-phone() {
+    background-position: top -5vh right -50vw;
+  }
+}
+
+
+
+// toggle btn or slider 
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+}
+
+// hide default checkbox
+.switch input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: color(primary-1);
+  -webkit-transition: .4s;
+          transition: .4s;
+  // round the slider
+  border-radius: 2em;
+}
+
+.slider::before {
+  position: absolute;
+  content: '';
+  height: 1.5em;
+  width: 1.5em;
+  left: .2em;
+  bottom: .2em;
+  background-color: color(secondary);
+  -webkit-transition: .5s;
+          transition: .5s;
+  // round the slider
+  border-radius: 50%;
+}
+
+input:checked + .slider::before {
+  -webkit-transform: translate(1.7em);
+  -ms-transform: translate(1.7em);
+      transform: translate(1.7em);
+}
+
+
+.plan {
+  width: 100%;
+  color: color(secondary-3);
+  background-color: color(secondary);
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-right: 2em;
+  padding-left: 2em;
+  // seperate price plans
+  margin-bottom: 2em;
+  border: 1px solid color(secondary-1);
+  border-radius: 5px;
+
+  li.price {
+    font-size: 3.5rem;
+  }
+
+  li {
+    font-size: 1.2rem;
+    border-bottom: 1px solid color(secondary-1);
+    padding-top: .5em;
+    padding-bottom: .9em;
+
+    &:last-child { margin-bottom: 1.5em; }
+  }
+
+  
+  .cta {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: color(secondary);
+    background-color: color(primary-1);
+    padding-top: .5em; 
+    padding-bottom: .5em; 
+    margin-bottom: 1em;
+    border-radius: 5px;
+    
+  }
+}
+
+.plan2 {
+  color: color(secondary);
+  background-color: color(primary-1);
+
+  .cta {
+    background-color: color(secondary);
+    color: color(primary-1);
+  }
+} 
+

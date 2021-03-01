@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  background-color: #f5f5ff;
+  background-image: url(/images/bg-top.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  margin-bottom: 1em;
+  color: #494c5f;
+}
+
+p.choice {
+  color: #6d708d;
+}
+
+.priceCard-wrapper {
+  text-align: center;
+  margin-top: 5em;
+}
+
+.price-cards {
+  width: 90%;
+  margin: 2em auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 375px) {
+  body {
+    background-position: top -5vh right -50vw;
+  }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+}
+
+.switch input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #696fdd;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 2em;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 1.5em;
+  width: 1.5em;
+  left: 0.2em;
+  bottom: 0.2em;
+  background-color: #f6f6fe;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  border-radius: 50%;
+}
+
+input:checked + .slider::before {
+  -webkit-transform: translate(1.7em);
+  -ms-transform: translate(1.7em);
+  transform: translate(1.7em);
+}
+
+.plan {
+  width: 100%;
+  color: #494c5f;
+  background-color: #f6f6fe;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-right: 2em;
+  padding-left: 2em;
+  margin-bottom: 2em;
+  border: 1px solid #b3b5c6;
+  border-radius: 5px;
+}
+.plan li.price {
+  font-size: 3.5rem;
+}
+.plan li {
+  font-size: 1.2rem;
+  border-bottom: 1px solid #b3b5c6;
+  padding-top: 0.5em;
+  padding-bottom: 0.9em;
+}
+.plan li:last-child {
+  margin-bottom: 1.5em;
+}
+.plan .cta {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #f6f6fe;
+  background-color: #696fdd;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  border-radius: 5px;
+}
+
+.plan2 {
+  color: #f6f6fe;
+  background-color: #696fdd;
+}
+.plan2 .cta {
+  background-color: #f6f6fe;
+  color: #696fdd;
+}
+
+/*# sourceMappingURL=main.css.map */
